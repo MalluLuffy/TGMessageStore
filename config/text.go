@@ -26,8 +26,7 @@ var Commands map[string]string = map[string]string{
 	"PRIVACY": `<i>This bot does not connect to any database and hence <b>does not store any user data</b> in any form.</i>`,
 }
 
-// Message that is sent when an unrecognized command is sent.
-var CommandNotFound = "<i>😐 I don't recognize that command !\nCheck /help to see how to use me.</i>"
+
 
 // Batch command texts.
 var (
