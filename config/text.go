@@ -18,7 +18,7 @@ var Commands map[string]string = map[string]string{
 }
 
 // Message that is sent when an unrecognized command is sent.
-var CommandNotFound = "<i>😐 I don't recognize that command !\nCheck /help to see how to use me.</i>"
+var CommandNotFound = "<i>😐 Sorry dude <b>only</b> an <b>admin</b> can do that !</i>"
 
 // Batch command texts.
 var (
