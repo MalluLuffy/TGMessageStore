@@ -14,8 +14,7 @@ import (
 var Commands map[string]string = map[string]string{
 	"START": `
 <i> Hai, I'm a  file store bot that works for <a href="https://t.me/AnimeXSaga">AɴɪᴍᴇXSᴀɢᴀ</a>  👣 </i>
-`
-	
+`,
 }
 
 // Message that is sent when an unrecognized command is sent.
