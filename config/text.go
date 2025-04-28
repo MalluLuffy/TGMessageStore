@@ -15,18 +15,19 @@ var Commands map[string]string = map[string]string{
 	"START": `
 <i> Hai, I'm a file store bot that works for <a href="https://t.me/AnimeXSaga">AɴɪᴍᴇXSᴀɢᴀ</a>  👣 </i>
 `,
-	"⚡": `
+	"ABOUT": `
 <i>😐 Sorry dude <b>only</b> an <b>admin</b> can do that !</i>
 	`,
 
-	"✨": `
+	"HELP": `
  <i>😐 Sorry dude <b>only</b> an <b>admin</b> can do that !</i>
 `,
 
 	"PRIVACY": `<i>This bot does not connect to any database and hence <b>does not store any user data</b> in any form.</i>`,
 }
 
-
+// Message that is sent when an unrecognized command is sent.
+var CommandNotFound = "<i>😐 I don't recognize that command !\nCheck /help to see how to use me.</i>"
 
 // Batch command texts.
 var (
