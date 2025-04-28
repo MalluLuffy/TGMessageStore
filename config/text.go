@@ -27,14 +27,6 @@ var (
 	BatchUnauthorized = "<i>😐 Sorry dude <b>only</b> an <b>admin</b> can do that !</i>"
 	// Bad/Incorrect isage of /batch
 	BatchBadUsage = `<i>🤧 Command Usage was <b>Incorrect</b> !</i>
-<blockquote expandable>
-<b>Usage</b>
-Add the bot to your channel and copy the link of the first and last post(including) from the channel;
-<b>Format</b>
-<code>/batch start_post_link end_post_link</code>
-<b>Example</b>
-<code>/batch https://t.me/c/123456789/69 https://t.me/c/123456789/100</code>
-</blockquote>`
 
 	// Unable to access source channel
 	BatchUnknownChat = "<i>🫤 I <b>couldn't access</b> that channel please make sure I am an <b>admin</b> there or <b>send a new message</b> if the channel is inactive !</i>"
