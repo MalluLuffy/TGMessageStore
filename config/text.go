@@ -16,11 +16,11 @@ var Commands map[string]string = map[string]string{
 <i> Hai, I'm a file store bot that works for <a href="https://t.me/AnimeXSaga">AɴɪᴍᴇXSᴀɢᴀ</a>  👣 </i>
 `,
 	"ABOUT": `
-<i>😐 Sorry dude <b>only</b> an <b>admin</b> can do that !</i>
+<i>😐 Sorry dude only an admin can do that !</i>
 	`,
 
 	"HELP": `
- <i>😐 Sorry dude <b>only</b> an <b>admin</b> can do that !</i>
+ <i>😐 Sorry dude only an admin can do that !</i>
 `,
 
 	"PRIVACY": `<i>This bot does not connect to any database and hence <b>does not store any user data</b> in any form.</i>`,
