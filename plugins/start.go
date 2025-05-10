@@ -28,17 +28,14 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 		return nil
 	}
 
-	if len(config.FsubChannels) > 0 {
-		var toJoin []*gotgbot.ChatFullInfo
-
-		for _, c := range config.FsubChannels {
+	for _, c := range config.FsubChannels {
 	if !isMember(bot, c, user.Id) {
 		chat, err := bot.GetChat(c, &gotgbot.GetChatOpts{})
 		if err != nil {
 			continue
 		}
 
-		// Fix: Generate invite link if not already present
+		// Ensure invite link is available
 		if chat.InviteLink == "" {
 			invite, err := bot.ExportChatInviteLink(c)
 			if err != nil {
@@ -49,8 +46,8 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 		}
 
 		toJoin = append(toJoin, chat)
-	    }
-         }
+	}
+}
 
 		if len(toJoin) > 0 {
 			var buttons [][]gotgbot.InlineKeyboardButton
