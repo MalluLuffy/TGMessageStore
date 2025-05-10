@@ -39,7 +39,7 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 				// Ensure invite link is available
 				if chat.InviteLink == "" {
-					invite, err := bot.ExportChatInviteLink(c)
+					invite, err := bot.ExportChatInviteLink(c, nil)
 					if err != nil {
 						fmt.Printf("Failed to export invite link for %d: %v\n", c, err)
 						continue
