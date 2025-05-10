@@ -56,7 +56,7 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 			switch len(toJoin) {
 			case 1:
-				buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: "ᴊᴏɪɴ ᴍʏ ᴄʜᴀɴɴᴇʟ", Url: toJoin[0].InviteLink}})
+				buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: "ᴊᴏɪɴ ғɪʀsᴛ ᴄʜᴀɴɴᴇʟ", Url: toJoin[0].InviteLink}}, []gotgbot.InlineKeyboardButton{{Text: "ᴊᴏɪɴ sᴇᴄᴏɴᴅ ᴄʜᴀɴɴᴇʟ", Url: toJoin[1].InviteLink}})
 			case 2:
 				buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: "ᴊᴏɪɴ ғɪʀsᴛ ᴄʜᴀɴɴᴇʟ", Url: toJoin[0].InviteLink}}, []gotgbot.InlineKeyboardButton{{Text: "ᴊᴏɪɴ sᴇᴄᴏɴᴅ ᴄʜᴀɴɴᴇʟ", Url: toJoin[1].InviteLink}})
 			default:
