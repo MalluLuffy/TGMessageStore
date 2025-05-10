@@ -32,15 +32,25 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 		var toJoin []*gotgbot.ChatFullInfo
 
 		for _, c := range config.FsubChannels {
-			if !isMember(bot, c, user.Id) {
-				chat, err := bot.GetChat(c, &gotgbot.GetChatOpts{})
-				if err != nil {
-					continue
-				}
-
-				toJoin = append(toJoin, chat)
-			}
+	if !isMember(bot, c, user.Id) {
+		chat, err := bot.GetChat(c, &gotgbot.GetChatOpts{})
+		if err != nil {
+			continue
 		}
+
+		// Fix: Generate invite link if not already present
+		if chat.InviteLink == "" {
+			invite, err := bot.ExportChatInviteLink(c)
+			if err != nil {
+				fmt.Printf("Failed to export invite link for %d: %v\n", c, err)
+				continue
+			}
+			chat.InviteLink = invite
+		}
+
+		toJoin = append(toJoin, chat)
+	    }
+         }
 
 		if len(toJoin) > 0 {
 			var buttons [][]gotgbot.InlineKeyboardButton
