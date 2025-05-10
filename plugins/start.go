@@ -32,19 +32,20 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 		for _, c := range config.FsubChannels {
 			if !isMember(bot, c, user.Id) {
-				chat, err := bot.GetChat(c, &gotgbot.GetChatOpts{})
-				if err != nil {
-					continue
-				}
+							// Get chat and always fetch invite link
+	     chat, err := bot.GetChat(c, &gotgbot.GetChatOpts{})
+	           if err != nil {
+		        fmt.Printf("Failed to get chat for %d: %v\n", c, err)
+		  continue
+	                 }
 
-				// Ensure invite link is available
-				if chat.InviteLink == "" {
-					invite, err := bot.ExportChatInviteLink(c, nil)
-					if err != nil {
-						fmt.Printf("Failed to export invite link for %d: %v\n", c, err)
-						continue
-					}
-					chat.InviteLink = invite
+	      invite, err := bot.ExportChatInviteLink(c, nil)
+	           if err != nil {
+		        fmt.Printf("Failed to export invite link for %d: %v\n", c, err)
+		    continue
+	                }
+	               chat.InviteLink = invite
+
 				}
 
 				toJoin = append(toJoin, chat)
