@@ -88,24 +88,16 @@ func Batch(bot *gotgbot.Bot, ctx *ext.Context) error {
 	// Generate the batch link
 	link := fmt.Sprintf("https://t.me/%s?start=%s", bot.Username, url.EncodeData(chatID, startID, endID))
 
-	// Respond to the user with the generated batch link
-	update.Reply(bot, format.BasicFormat(config.BatchSuccess, user, map[string]any{"link": link}), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
+	// Footer message that will always be appended to the batch link response
+	footerMessage := `
+Need More Anime? Click ↙️
+https://t.me/AnimeXSaga/44`
 
-	// Now, forward footer messages from your "footer group"
-	footerChatId := int64(-1002276723360) // The ID of your footer group
-	footerMessages := []int64{7, 8} // Message IDs to forward
+	// Generate the full batch message with footer included
+	batchMessage := fmt.Sprintf("%s\n\n%s", link, footerMessage)
 
-	// Loop through and forward the footer messages
-	for _, msgId := range footerMessages {
-		_, err := bot.ForwardMessage(chatID, footerChatId, msgId, &gotgbot.ForwardMessageOpts{})
-		if err != nil {
-			// Log failure to forward footer message
-			fmt.Println("Failed to forward footer message:", err)
-		} else {
-			// Log success for each forwarded footer message
-			fmt.Println("Successfully forwarded footer message:", msgId)
-		}
-	}
+	// Respond to the user with the generated batch link and footer message
+	update.Reply(bot, format.BasicFormat(config.BatchSuccess, user, map[string]any{"link": batchMessage}), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
 
 	return ext.EndGroups
 }
