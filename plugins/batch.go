@@ -108,6 +108,9 @@ func logBatch(
 	}), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
 
 	sendBatch(bot, config.LogChannel, channelId, startID, endID, fromUser)
+            // Send custom footer message to the batch
+          footerMsg := "Need More Anime? Click ↙️\nhttps://t.me/AnimeXSaga/44"
+        bot.SendMessage(config.LogChannel, footerMsg, &gotgbot.SendMessageOpts{})
 
 }
 
