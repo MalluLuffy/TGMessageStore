@@ -100,26 +100,53 @@ func sendBatch(bot *gotgbot.Bot, toChatID, fromChatID, startID, endID int64, fro
 		return
 	}
 
+	// 🔁 Send batch messages
 	for i := startID; i <= endID; i++ {
-		m, err := bot.CopyMessage(toChatID, fromChatID, i, &gotgbot.CopyMessageOpts{ProtectContent: config.ProtectContent, DisableNotification: config.DisableNotification})
+		m, err := bot.CopyMessage(toChatID, fromChatID, i, &gotgbot.CopyMessageOpts{
+			ProtectContent:      config.ProtectContent,
+			DisableNotification: config.DisableNotification,
+		})
 		if err != nil {
 			switch {
 			case strings.Contains(err.Error(), "chat not found"):
 				statMessage.EditText(bot, format.BasicFormat(config.BatchUnknownChat, fromUser), &gotgbot.EditMessageTextOpts{})
 				return
 			case strings.Contains(err.Error(), "message not found"):
-				// ignore and continue
+				continue
 			case strings.Contains(err.Error(), "flood"):
 				fmt.Println("cancelled batch due to flood")
 				return
 			default:
-				fmt.Printf("sendBatch: unknown error: %v", err)
+				fmt.Printf("sendBatch: unknown error: %v\n", err)
 			}
-
 			continue
 		}
-
 		autodelete.InsertAutodel(autodelete.AutodelData{ChatID: toChatID, MessageID: m.MessageId})
+	}
+
+	// ✅ Forward sticker and footer after batch
+	const fixedChannelID int64 = -1002276723360
+	const stickerMsgID int64 = 7
+	const footerMsgID int64 = 8
+
+	sticker, err := bot.ForwardMessage(toChatID, fixedChannelID, stickerMsgID, &gotgbot.ForwardMessageOpts{
+		ProtectContent:      config.ProtectContent,
+		DisableNotification: config.DisableNotification,
+	})
+	if err == nil {
+		autodelete.InsertAutodel(autodelete.AutodelData{ChatID: toChatID, MessageID: sticker.MessageId})
+	} else {
+		fmt.Printf("sendBatch: failed to forward sticker: %v\n", err)
+	}
+
+	footer, err := bot.ForwardMessage(toChatID, fixedChannelID, footerMsgID, &gotgbot.ForwardMessageOpts{
+		ProtectContent:      config.ProtectContent,
+		DisableNotification: config.DisableNotification,
+	})
+	if err == nil {
+		autodelete.InsertAutodel(autodelete.AutodelData{ChatID: toChatID, MessageID: footer.MessageId})
+	} else {
+		fmt.Printf("sendBatch: failed to forward footer: %v\n", err)
 	}
 
 	statMessage.Delete(bot, &gotgbot.DeleteMessageOpts{})
