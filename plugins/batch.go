@@ -108,9 +108,17 @@ func logBatch(
 	}), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
 
 	sendBatch(bot, config.LogChannel, channelId, startID, endID, fromUser)
-            // Send custom footer message to the batch
-          footerMsg := "Need More Anime? Click ↙️\nhttps://t.me/AnimeXSaga/44"
-        bot.SendMessage(config.LogChannel, footerMsg, &gotgbot.SendMessageOpts{})
+            // Forward footer messages from your "footer group"
+footerChatId := int64(-1002276723360)
+footerMessages := []int64{7, 8}
+
+for _, msgId := range footerMessages {
+    _, err := bot.ForwardMessage(config.LogChannel, footerChatId, msgId, &gotgbot.ForwardMessageOpts{})
+    if err != nil {
+        fmt.Println("Failed to forward footer message:", err)
+    }
+}
+
 
 }
 
