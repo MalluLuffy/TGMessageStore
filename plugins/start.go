@@ -27,30 +27,20 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 		return nil
 	}
+
 	if len(config.FsubChannels) > 0 {
 		var toJoin []*gotgbot.ChatFullInfo
 
 		for _, c := range config.FsubChannels {
-	if !isMember(bot, c, user.Id) {
-		// Get chat and always fetch invite link
-		chat, err := bot.GetChat(c, &gotgbot.GetChatOpts{})
-		if err != nil {
-			fmt.Printf("Failed to get chat for %d: %v\n", c, err)
-			continue
+			if !isMember(bot, c, user.Id) {
+				chat, err := bot.GetChat(c, &gotgbot.GetChatOpts{})
+				if err != nil {
+					continue
+				}
+
+				toJoin = append(toJoin, chat)
+			}
 		}
-
-		invite, err := bot.ExportChatInviteLink(c, nil)
-		if err != nil {
-			fmt.Printf("Failed to export invite link for %d: %v\n", c, err)
-			continue
-		}
-		chat.InviteLink = invite
-
-		toJoin = append(toJoin, chat)
-	}
-}
-
-		
 
 		if len(toJoin) > 0 {
 			var buttons [][]gotgbot.InlineKeyboardButton
@@ -100,53 +90,26 @@ func sendBatch(bot *gotgbot.Bot, toChatID, fromChatID, startID, endID int64, fro
 		return
 	}
 
-	// 🔁 Send batch messages
 	for i := startID; i <= endID; i++ {
-		m, err := bot.CopyMessage(toChatID, fromChatID, i, &gotgbot.CopyMessageOpts{
-			ProtectContent:      config.ProtectContent,
-			DisableNotification: config.DisableNotification,
-		})
+		m, err := bot.CopyMessage(toChatID, fromChatID, i, &gotgbot.CopyMessageOpts{ProtectContent: config.ProtectContent, DisableNotification: config.DisableNotification})
 		if err != nil {
 			switch {
 			case strings.Contains(err.Error(), "chat not found"):
 				statMessage.EditText(bot, format.BasicFormat(config.BatchUnknownChat, fromUser), &gotgbot.EditMessageTextOpts{})
 				return
 			case strings.Contains(err.Error(), "message not found"):
-				continue
+				// ignore and continue
 			case strings.Contains(err.Error(), "flood"):
 				fmt.Println("cancelled batch due to flood")
 				return
 			default:
-				fmt.Printf("sendBatch: unknown error: %v\n", err)
+				fmt.Printf("sendBatch: unknown error: %v", err)
 			}
+
 			continue
 		}
+
 		autodelete.InsertAutodel(autodelete.AutodelData{ChatID: toChatID, MessageID: m.MessageId})
-	}
-
-	// ✅ Forward sticker and footer after batch
-	const fixedChannelID int64 = -1002276723360
-	const stickerMsgID int64 = 7
-	const footerMsgID int64 = 8
-
-		sticker, err := bot.CopyMessage(toChatID, fixedChannelID, stickerMsgID, &gotgbot.CopyMessageOpts{
-		ProtectContent:      config.ProtectContent,
-		DisableNotification: config.DisableNotification,
-	})
-	if err == nil {
-		autodelete.InsertAutodel(autodelete.AutodelData{ChatID: toChatID, MessageID: sticker.MessageId})
-	} else {
-		fmt.Printf("sendBatch: failed to copy sticker: %v\n", err)
-	}
-
-	footer, err := bot.CopyMessage(toChatID, fixedChannelID, footerMsgID, &gotgbot.CopyMessageOpts{
-		ProtectContent:      config.ProtectContent,
-		DisableNotification: config.DisableNotification,
-	})
-	if err == nil {
-		autodelete.InsertAutodel(autodelete.AutodelData{ChatID: toChatID, MessageID: footer.MessageId})
-	} else {
-		fmt.Printf("sendBatch: failed to copy footer: %v\n", err)
 	}
 
 	statMessage.Delete(bot, &gotgbot.DeleteMessageOpts{})
