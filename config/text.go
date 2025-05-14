@@ -89,17 +89,6 @@ var (
 `
 )
 
-func handleCloseCallback(b *gotgbot.Bot, cb *gotgbot.CallbackQuery) error {
-    // Check the callback data
-    if cb.Data == "cmd_CLOSE" {
-        opts := &gotgbot.DeleteMessageOpts{} // Empty options, modify if needed
-        err := cb.Message.Delete(b, opts)    // This returns an error, not a bool
-        return err // Return the error if any, not a boolean
-    }
-    return nil
-}
-
-
 // GetCommand returns the content for a command.
 func GetCommand(command string) (string, [][]gotgbot.InlineKeyboardButton) {
 	command = strings.ToUpper(command)
@@ -110,6 +99,18 @@ func GetCommand(command string) (string, [][]gotgbot.InlineKeyboardButton) {
 	}
 
 	return text, Buttons[command]
+}
+
+func handleCloseCallback(b *gotgbot.Bot, cb *gotgbot.CallbackQuery) error {
+    // Check the callback data
+    if cb.Data == "cmd_CLOSE" {
+        // Handle both values returned by Delete() method (message delete result and error)
+        _, err := cb.Message.Delete()
+        if err != nil {
+            return err // return the error if delete fails
+        }
+    }
+    return nil
 }
 
 // GetCommandText returns only text for a command.
