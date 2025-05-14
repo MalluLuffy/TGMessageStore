@@ -19,11 +19,11 @@ var Commands map[string]string = map[string]string{
 ○ <b>ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/SAGA_UPDATES'>SAGA_UPDATES</a></b>
 ○ <b>ʟᴀɴɢᴜᴀɢᴇ : ɢᴏ</b>
 ○ <b>ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/MalluSaitama'>@MalluSaitama</a></b>
-<i>If you want to make a bot like this contact me.</i>
+○ <b>If you want to make a bot like this contact me.</b>
 	`,
 
 	"HELP": `
-<b>ᴛʜɪs ᴛᴀʙ ɪs ᴄʟᴏsᴇᴅ 🔒</b>
+<b>ᴛᴀʙ ɪs ᴄʟᴏsᴇᴅ 🔒</b>
 `,
 
 	"PRIVACY": `<i>This bot does not connect to any database and hence <b>does not store any user data</b> in any form.</i>`,
