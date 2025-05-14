@@ -93,7 +93,8 @@ func handleCloseCallback(b *gotgbot.Bot, cb *gotgbot.CallbackQuery) error {
     // Check the callback data
     if cb.Data == "cmd_CLOSE" {
         opts := &gotgbot.DeleteMessageOpts{} // Empty options, modify if needed
-        return cb.Message.Delete(b, opts)    // Pass bot instance and delete options
+        err := cb.Message.Delete(b, opts)    // This returns an error, not a bool
+        return err // Return the error if any, not a boolean
     }
     return nil
 }
