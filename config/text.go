@@ -24,7 +24,7 @@ var Commands map[string]string = map[string]string{
 	`,
 
 	"HELP": `
-<b></b>
+<b>⚠︎ ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴀᴄᴄᴇss ᴛʜɪs ⚠︎</b>
 `,
 
 	"PRIVACY": `<i>This bot does not connect to any database and hence <b>does not store any user data</b> in any form.</i>`,
