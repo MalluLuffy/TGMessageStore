@@ -16,7 +16,11 @@ var Commands map[string]string = map[string]string{
 <b> Hello, I am a File Store Bot Powered by @AnimeXSaga </b> 👣
 `,
 	"ABOUT": `
-<i>😐 Sorry dude only an admin can do that !</i>
+➥ <b>ᴘᴏᴡᴇʀᴇᴅ ʙʏ:  @AnimeXSaga </b>
+➥ <b>ʙᴜɪʟᴛ ᴡɪᴛʜ:  ᴘʏᴛʜᴏɴ 3</b>
+➥ <b>ᴅᴀᴛᴀʙᴀsᴇ:  ᴍᴏɴɢᴏᴅʙ</b>
+➥ <b>ᴅᴇᴠᴇʟᴏᴘᴇʀ:  @MalluSaitama</b>
+➥ <b>ᴄᴏᴅᴇ: ᴘᴀɪᴅ ᴡᴏʀᴋ ᴏɴʟʏ</b>
 	`,
 
 	"HELP": `
