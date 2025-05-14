@@ -66,7 +66,7 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 				}
 			}
 
-			buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: "↻ Tʀʏ Aɢᴀɪɴ", Url: fmt.Sprintf("https://t.me/%s?start=%s", bot.Username, split[1])}})
+			buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: "↻ ᴛʀʏ ᴀɢᴀɪɴ", Url: fmt.Sprintf("https://t.me/%s?start=%s", bot.Username, split[1])}})
 
 			update.Reply(bot, format.BasicFormat(config.FsubMessage, user), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML, ReplyMarkup: gotgbot.InlineKeyboardMarkup{InlineKeyboard: buttons}})
 
