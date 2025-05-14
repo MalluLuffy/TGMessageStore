@@ -16,7 +16,7 @@ var Commands map[string]string = map[string]string{
 <b> Hello, I am a File Store Bot Powered by @AnimeXSaga </b> 👣
 `,
 	"ABOUT": `
-➥ <b>ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/SAGA_UPDATES'>Update XSaga</a></b>
+➥ <b>ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/SAGA_UPDATES'>UpdateXSaga</a></b>
 ➥ <b>ʙᴜɪʟᴛ ᴡɪᴛʜ : ɢᴏ</b>
 ➥ <b>ᴅᴀᴛᴀʙᴀsᴇ : ᴍᴏɴɢᴏᴅʙ</b>
 ➥ <b>ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/MalluSaitama'>𝘔𝘢𝘭𝘭𝘶𝘚𝘢𝘪𝘵𝘢𝘮𝘢</a></b>
@@ -24,7 +24,7 @@ var Commands map[string]string = map[string]string{
 	`,
 
 	"HELP": `
-<b>⚠︎ ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴀᴄᴄᴇss ᴛʜɪs ⚠︎</b>
+<b></b>
 `,
 
 	"PRIVACY": `<i>This bot does not connect to any database and hence <b>does not store any user data</b> in any form.</i>`,
