@@ -88,6 +88,16 @@ var (
 </i>
 `
 )
+func handleCloseCallback(b *gotgbot.Bot, ctx *gotgbot.Context) error {
+	cb := ctx.CallbackQuery
+
+	// Only handle "cmd_CLOSE"
+	if cb.Data == "cmd_CLOSE" {
+		return cb.Message.Delete()
+	}
+
+	return nil
+}
 
 // GetCommand returns the content for a command.
 func GetCommand(command string) (string, [][]gotgbot.InlineKeyboardButton) {
