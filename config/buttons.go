@@ -7,8 +7,8 @@ package config
 import "github.com/PaulSonOfLars/gotgbot/v2"
 
 var Buttons map[string][][]gotgbot.InlineKeyboardButton = map[string][][]gotgbot.InlineKeyboardButton{
-	"START": {{aboutButton, closeButton}},
-	"ABOUT": {{}},
+	"START": {{aboutButton, homeButton}},
+	"ABOUT": {{homeButton}},
 	"HELP":  {{}},
 }
 
