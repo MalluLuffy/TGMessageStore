@@ -17,5 +17,5 @@ var (
 	aboutButton = gotgbot.InlineKeyboardButton{Text: "➕", CallbackData: "cmd_ABOUT"}
 	helpButton  = gotgbot.InlineKeyboardButton{Text: "💀", CallbackData: "cmd_HELP"}
 	homeButton  = gotgbot.InlineKeyboardButton{Text: "Home 🏠", CallbackData: "cmd_START"}
-        closeButton := gotgbot.InlineKeyboardButton{Text: "🔒 Close", CallbackData: "cmd_CLOSE"}
+        closeButton = gotgbot.InlineKeyboardButton{Text: "🔒 Close", CallbackData: "cmd_CLOSE"}
 )
