@@ -19,7 +19,7 @@ var Commands map[string]string = map[string]string{
 ○ <b>ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/SAGA_UPDATES'>SAGA_UPDATES</a></b>
 ○ <b>ʟᴀɴɢᴜᴀɢᴇ : ɢᴏ</b>
 ○ <b>ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/MalluSaitama'>@MalluSaitama</a></b>
-○ <b>ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴍᴀᴋᴇ ᴀ ʙᴏᴛ ʟɪᴋᴇ ᴛʜɪs ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ..</b>
+○ <b>ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴍᴀᴋᴇ ᴀ ʙᴏᴛ ʟɪᴋᴇ ᴛʜɪs ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ.</b>
 	`,
 
 	"HELP": `
