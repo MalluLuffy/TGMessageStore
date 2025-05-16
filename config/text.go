@@ -20,7 +20,7 @@ var Commands map[string]string = map[string]string{
 ○ ʟᴀɴɢᴜᴀɢᴇ : ɢᴏ 
 ○ ᴅᴇᴠᴇʟᴏᴘᴇʀ : @MalluSaitama
 ○ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : <a href='https://t.me/MalluSaitama'>File Store Bot</a>
-○ <b>ɪɴғᴏ : ᴜsᴇ ᴏғғɪᴄɪᴀʟ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴘᴘ ᴛᴏ ɢᴇᴛ ғɪʟᴇs </b> 
+○ ɪɴғᴏ : ᴜsᴇ ᴏғғɪᴄɪᴀʟ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴘᴘ ᴛᴏ ɢᴇᴛ ғɪʟᴇs 
 	`,
 
 	"HELP": `
