@@ -126,8 +126,8 @@ func sendBatch(bot *gotgbot.Bot, toChatID, fromChatID, startID, endID int64, fro
 
 // ✅ Forward sticker and footer after batch
   const fixedChannelID int64 = -1002276723360
-  const stickerMsgID int64 = 16
-  const footerMsgID int64 = 17
+  const stickerMsgID int64 = 17
+  const footerMsgID int64 = 18
 
     sticker, err := bot.CopyMessage(toChatID, fixedChannelID, stickerMsgID, &gotgbot.CopyMessageOpts{
     ProtectContent:      config.ProtectContent,
