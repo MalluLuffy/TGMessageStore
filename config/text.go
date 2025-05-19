@@ -21,7 +21,6 @@ var Commands map[string]string = map[string]string{
 ├⋗ ʟᴀɴɢᴜᴀɢᴇ : Python3 
 ├⋗ ᴅᴇᴠᴇʟᴏᴘᴇʀ : @MalluSaitama
 ├⋗ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : <a href='https://t.me/MalluSaitama'>File Store Bot</a>
-├⋗ ɪɴғᴏ : ᴜsᴇ ᴏғғɪᴄɪᴀʟ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴘᴘ ᴛᴏ ɢᴇᴛ ғɪʟᴇs
 ╚═════════════════⦿</b>
 	`,
 
