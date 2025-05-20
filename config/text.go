@@ -17,9 +17,9 @@ var Commands map[string]string = map[string]string{
 `,
 	"ABOUT": `
 <b>╔════════════⦿
-├⋗ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/SAGA_UPDATES'>SAGA UPDATES</a>
+├⋗ ᴄʜᴀɴɴᴇʟ : @UpSaga
 ├⋗ ʟᴀɴɢᴜᴀɢᴇ : Python3 
-├⋗ ᴅᴇᴠᴇʟᴏᴘᴇʀ : @MalluSaitama
+├⋗ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/MalluSaitama'>Owner</a>
 ├⋗ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : <a href='https://t.me/MalluSaitama'>File Store Bot</a>
 ╚═════════════════⦿</b>
 	`,
