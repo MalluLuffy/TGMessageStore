@@ -13,7 +13,7 @@ import (
 // Standard command replies. Add a new entry to create new command no extra configs needed.
 var Commands map[string]string = map[string]string{
 	"START": `
-<b> Hello, I am a File Store Bot Powered by @AnimeXSaga ⛩️ </b> 
+<b> Hello, I am a File Store Bot Powered by @UpSaga ⛩️ </b> 
 `,
 	"ABOUT": `
 <b>╔════════════⦿
