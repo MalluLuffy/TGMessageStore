@@ -15,7 +15,7 @@ var Commands map[string]string = map[string]string{
 	"START": `
 <b> Hello <a href="tg://user?id={user_id}">{name}</a>,
 
-I am a File Store Bot Powered by @UpSaga ⛩️ </b>
+I am a file store bot Powered by @UpSaga ⛩️ </b>
 `,
 	"ABOUT": `
 <b>╔════════════⦿
